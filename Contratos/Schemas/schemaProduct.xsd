@@ -4,11 +4,11 @@
 	xmlns:pref="http://www.ABC.com/schemaCanonical">
 
 	<import schemaLocation="schemaCanonical.xsd" namespace="http://www.ABC.com/schemaCanonical" />
-	<element name="consultarProdutoReq" type="tns:consultarProdutoReq" />
-	<element name="consultarProdutoRes" type="tns:consultarProdutoRes" />
-	<element name="actualizarProdutoReq" type="tns:actualizarProdutoReq" />
-	<element name="actualizarProdutoRes" type="tns:actualizarProdutoRes" />
-	<complexType name="consultarProdutoReq">
+	<element name="consultarProductoReq" type="tns:consultarProductoReq" />
+	<element name="consultarProductoRes" type="tns:consultarProductoRes" />
+	<element name="actualizarProductoReq" type="tns:actualizarProductoReq" />
+	<element name="actualizarProductoRes" type="tns:actualizarProductoRes" />
+	<complexType name="consultarProductoReq">
 		<sequence>
 			<element name="tipoProducto" type="pref:tipoProducto"
 				minOccurs="1" maxOccurs="1" />
@@ -18,7 +18,7 @@
 				maxOccurs="1" nillable="true"/>				
 		</sequence>
 	</complexType>
-	<complexType name="consultarProdutoRes">
+	<complexType name="consultarProductoRes">
 		<sequence>
 			<element name="descProducto" type="pref:nombre"
 				minOccurs="1" maxOccurs="1" />
@@ -26,7 +26,7 @@
 				minOccurs="1" maxOccurs="1" />
 		</sequence>
 	</complexType>
-	<complexType name="actualizarProdutoReq">
+	<complexType name="actualizarProductoReq">
 		<sequence>
 			<element name="tipoProducto" type="pref:tipoProducto"
 				minOccurs="1" maxOccurs="1" />
@@ -36,7 +36,7 @@
 				minOccurs="1" maxOccurs="1" />
 		</sequence>
 	</complexType>
-	<complexType name="actualizarProdutoRes">
+	<complexType name="actualizarProductoRes">
 		<sequence>
 			<element name="descProducto" type="pref:nombre"
 				minOccurs="1" maxOccurs="1" />

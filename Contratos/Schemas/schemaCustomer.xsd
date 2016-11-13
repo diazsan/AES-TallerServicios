@@ -3,13 +3,17 @@
 	xmlns:tns="http://www.ABC.com/schemaCustomer" elementFormDefault="qualified"
 	xmlns:ref="http://www.ABC.com/schemaCanonical">
 	<import schemaLocation="schemaCanonical.xsd" namespace="http://www.ABC.com/schemaCanonical" />
+	<element name="consultarClienteReq" type="tns:consultarClienteReq"/>
+	<element name="consultarClienteRes" type="tns:consultarClienteRes"/>
+	<element name="consultarProdClienteReq" type="tns:consultarProdClienteReq"/>
+	<element name="consultarProdClienteRes" type="tns:consultarProdClienteRes"/>
 	<complexType name="consultarClienteReq">
 		<sequence>
 			<element name="tipoUsuario" type="ref:tipoUsuario" minOccurs="1"
 				maxOccurs="1" />
 			<element name="idUsuario" type="ref:idUsuario" minOccurs="1"
 				maxOccurs="1" />
-			<element name="clave" type="ref:clave" minOccurs="1"
+			<element name="clave" type="ref:clave" minOccurs="0"
 				maxOccurs="1" nillable="true" />
 		</sequence>
 	</complexType>
@@ -29,7 +33,7 @@
 				maxOccurs="1" />
 			<element name="idUsuario" type="ref:idUsuario" minOccurs="1"
 				maxOccurs="1" />
-			<element name="clave" type="ref:clave" minOccurs="1"
+			<element name="clave" type="ref:clave" minOccurs="0"
 				maxOccurs="1" nillable="true" />
 		</sequence>
 	</complexType>
