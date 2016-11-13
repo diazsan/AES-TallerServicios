@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ABC.com/schemaProduct"
+	xmlns:tns="http://www.ABC.com/schemaProduct" elementFormDefault="qualified"
+	xmlns:pref="http://www.ABC.com/schemaCanonical">
+
+	<import schemaLocation="schemaCanonical.xsd" namespace="http://www.ABC.com/schemaCanonical" />
+	<element name="consultarProdutoReq" type="tns:consultarProdutoReq" />
+	<element name="consultarProdutoRes" type="tns:consultarProdutoRes" />
+	<element name="actualizarProdutoReq" type="tns:actualizarProdutoReq" />
+	<element name="actualizarProdutoRes" type="tns:actualizarProdutoRes" />
+	<complexType name="consultarProdutoReq">
+		<sequence>
+			<element name="tipoProducto" type="pref:tipoProducto"
+				minOccurs="1" maxOccurs="1" />
+			<element name="idProduto" type="pref:idProducto" minOccurs="1"
+				maxOccurs="1" />
+			<element name="clave" type="pref:clave" minOccurs="0"
+				maxOccurs="1" nillable="true"/>				
+		</sequence>
+	</complexType>
+	<complexType name="consultarProdutoRes">
+		<sequence>
+			<element name="descProducto" type="pref:nombre"
+				minOccurs="1" maxOccurs="1" />
+			<element name="saldoProducto" type="pref:saldoProducto"
+				minOccurs="1" maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="actualizarProdutoReq">
+		<sequence>
+			<element name="tipoProducto" type="pref:tipoProducto"
+				minOccurs="1" maxOccurs="1" />
+			<element name="idProduto" type="pref:idProducto" minOccurs="1"
+				maxOccurs="1" />
+			<element name="valorDebito" type="pref:valor"
+				minOccurs="1" maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="actualizarProdutoRes">
+		<sequence>
+			<element name="descProducto" type="pref:nombre"
+				minOccurs="1" maxOccurs="1" />
+			<element name="saldoProducto" type="pref:saldoProducto"
+				minOccurs="1" maxOccurs="1" />
+		</sequence>	
+	</complexType>
+</schema>

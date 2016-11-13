@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ABC.com/schemaCustomer"
+	xmlns:tns="http://www.ABC.com/schemaCustomer" elementFormDefault="qualified"
+	xmlns:ref="http://www.ABC.com/schemaCanonical">
+	<import schemaLocation="schemaCanonical.xsd" namespace="http://www.ABC.com/schemaCanonical" />
+	<complexType name="consultarClienteReq">
+		<sequence>
+			<element name="tipoUsuario" type="ref:tipoUsuario" minOccurs="1"
+				maxOccurs="1" />
+			<element name="idUsuario" type="ref:idUsuario" minOccurs="1"
+				maxOccurs="1" />
+			<element name="clave" type="ref:clave" minOccurs="1"
+				maxOccurs="1" nillable="true" />
+		</sequence>
+	</complexType>
+	<complexType name="consultarClienteRes">
+		<sequence>
+			<element name="nombreCliente" type="ref:nombre" minOccurs="1"
+				maxOccurs="1" />
+			<element name="celular" type="ref:celular" minOccurs="0"
+				maxOccurs="1" />
+			<element name="correo" type="ref:correo" minOccurs="0"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="consultarProdClienteReq">
+		<sequence>
+			<element name="tipoUsuario" type="ref:tipoUsuario" minOccurs="1"
+				maxOccurs="1" />
+			<element name="idUsuario" type="ref:idUsuario" minOccurs="1"
+				maxOccurs="1" />
+			<element name="clave" type="ref:clave" minOccurs="1"
+				maxOccurs="1" nillable="true" />
+		</sequence>
+	</complexType>
+	<complexType name="productoCliente">
+		<sequence>
+			<element name="tipoProducto" type="ref:tipoProducto"
+				minOccurs="1" maxOccurs="1" />
+			<element name="idProduto" type="ref:idProducto" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="consultarProdClienteRes">
+		<sequence>
+			<element name="producto" type="tns:productoCliente" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+</schema>

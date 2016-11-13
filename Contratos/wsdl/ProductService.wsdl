@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.ABC.com/ProductService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProductService"
+	targetNamespace="http://www.ABC.com/ProductService/" xmlns:pro="http://www.ABC.com/schemaProduct"
+	xmlns:hea="http://www.ABC.com/schemaHeader">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import schemaLocation="../Schemas/schemaProduct.xsd"
+				namespace="http://www.ABC.com/schemaProduct" />
+			<xsd:import schemaLocation="../Schemas/schemaHeader.xsd"
+				namespace="http://www.ABC.com/schemaHeader" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="consultaRequest">
+		<wsdl:part element="pro:consultarProdutoReq" name="consulta" />
+	</wsdl:message>
+	<wsdl:message name="consultaResponse">
+		<wsdl:part element="pro:consultarProdutoRes" name="consultaRes" />
+	</wsdl:message>
+	<wsdl:message name="actualizaResponse">
+		<wsdl:part element="pro:actualizarProdutoRes" name="actualizaRes" />
+	</wsdl:message>
+	<wsdl:message name="actualizaRequest">
+		<wsdl:part element="pro:actualizarProdutoReq" name="actualiza" />
+	</wsdl:message>
+	<wsdl:message name="headerReq">
+		<wsdl:part element="hea:headerReq" name="headerReq" />
+	</wsdl:message>
+	<wsdl:message name="headerRes">
+		<wsdl:part element="hea:headerRes" name="headerRes" />
+	</wsdl:message>
+	<wsdl:portType name="ProductService">
+		<wsdl:operation name="Consultar">
+			<wsdl:input message="tns:consultaRequest" />
+			<wsdl:output message="tns:consultaResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="Actualizar">
+			<wsdl:input message="tns:actualizaRequest" />
+			<wsdl:output message="tns:actualizaResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ProductServiceBinding" type="tns:ProductService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="Consultar">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:header use="literal" part="headerReq" message="tns:headerReq" />
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" part="headerRes" message="tns:headerRes" />
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Actualizar">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:header use="literal" part="headerReq" message="tns:headerReq" />
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" part="headerRes" message="tns:headerRes" />
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ProductService">
+		<wsdl:port binding="tns:ProductServiceBinding" name="ProductServicePort">
+			<soap:address location="http://www.ABC.com/ProductService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
