@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ABC.com/schemaBill"
+	xmlns:tns="http://www.ABC.com/schemaBill" elementFormDefault="qualified"
+	xmlns:ref="http://www.ABC.com/schemaCanonical">
+	<import schemaLocation="schemaCanonical.xsd" namespace="http://www.ABC.com/schemaCanonical" />
+	<element name="consultarFacturaReq" type="tns:consultarFacturaReq"/>
+	<element name="consultarFacturaRes" type="tns:consultarFacturaRes"/>
+	<element name="pagarFacturaReq" type="tns:pagarFacturaReq"/>
+	<element name="pagarFacturaRes" type="tns:pagarFacturaRes"/>
+	<element name="compensarFacturaReq" type="tns:compensarFacturaReq"/>
+	<element name="compensarFacturaRes" type="tns:compensarFacturaRes"/>
+	<complexType name="consultarFacturaReq">
+		<sequence>
+			<element name="refPago" type="ref:refPago" minOccurs="1"
+				maxOccurs="1" />
+			<element name="convenio" type="ref:idConvenio" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="consultarFacturaRes">
+		<sequence>
+			<element name="valor" type="ref:valor" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="pagarFacturaReq">
+		<sequence>
+			<element name="refPago" type="ref:refPago" minOccurs="1"
+				maxOccurs="1" />
+			<element name="convenio" type="ref:idConvenio" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="pagarFacturaRes">
+		<sequence>
+			<element name="valor" type="ref:valor" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>	
+	<complexType name="compensarFacturaReq">
+		<sequence>
+			<element name="refPago" type="ref:refPago" minOccurs="1"
+				maxOccurs="1" />
+			<element name="convenio" type="ref:idConvenio" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="compensarFacturaRes">
+		<sequence>
+			<element name="valor" type="ref:valor" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>	
+</schema>

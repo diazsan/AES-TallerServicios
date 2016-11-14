@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ABC.com/schemaCanonical"
+	xmlns:tns="http://www.ABC.com/schemaCanonical" elementFormDefault="qualified">
+	<simpleType name="tipoProducto">
+		<restriction base="string">
+			<length value="3" />
+			<enumeration value="AHO" />
+			<enumeration value="COR" />
+			<enumeration value="TCR" />
+			<enumeration value="TDE" />
+		</restriction>
+	</simpleType>
+	<simpleType name="idProducto">
+		<restriction base="string">
+			<length value="16" />
+			<whiteSpace value="collapse" />
+		</restriction>
+	</simpleType>
+	<simpleType name="saldoProducto">
+		<restriction base="double">
+			<minExclusive value="0" />
+			<maxExclusive value="9999999999999999" />
+		</restriction>
+	</simpleType>
+	<simpleType name="clave">
+		<restriction base="string">
+			<length value="8" />
+			<whiteSpace value="collapse" />
+		</restriction>
+	</simpleType>
+	<simpleType name="idUsuario">
+		<restriction base="long">
+			<minExclusive value="0" />
+			<maxExclusive value="9999999999999" />
+		</restriction>
+	</simpleType>
+	<simpleType name="tipoUsuario">
+		<restriction base="string">
+			<length value="3" />
+			<enumeration value="CED" />
+			<enumeration value="NIT" />
+			<enumeration value="CEE" />
+			<enumeration value="REG" />
+			<whiteSpace value="collapse" />
+		</restriction>
+	</simpleType>
+	<simpleType name="nombre">
+		<restriction base="string">
+			<length value="50" />
+			<whiteSpace value="collapse" />
+		</restriction>
+	</simpleType>
+	<simpleType name="correo">
+		<restriction base="string">
+			<length value="50" />
+			<pattern value="" />
+		</restriction>
+	</simpleType>
+	<simpleType name="celular">
+		<restriction base="long">
+			<minExclusive value="1" />
+			<maxExclusive value="9999999999" />
+		</restriction>
+	</simpleType>
+	<simpleType name="refPago">
+		<restriction base="string">
+			<length value="50" />
+			<whiteSpace value="collapse" />
+		</restriction>
+	</simpleType>
+	<simpleType name="idConvenio">
+		<restriction base="integer">
+			<maxInclusive value="9999" />
+			<minInclusive value="0" />
+		</restriction>
+	</simpleType>
+	<simpleType name="valor">
+		<restriction base="double">
+			<minInclusive value="0" />
+			<maxInclusive value="9999999999999" />
+		</restriction>
+	</simpleType>
+	<simpleType name="estadoFactura">
+		<restriction base="string">
+			<length value="2" />
+			<enumeration value="PA" />
+			<enumeration value="VI" />
+			<enumeration value="VE" />
+		</restriction>
+	</simpleType>
+	<simpleType name="fechaVenc">
+		<restriction base="dateTime">
+			<pattern value="" />
+		</restriction>
+	</simpleType>
+	<simpleType name="prodOrigen">
+		<restriction base="string">
+			<length value="3" />
+			<enumeration value="AHO" />
+			<enumeration value="COR" />
+			<enumeration value="TCR" />
+			<enumeration value="TDE" />
+		</restriction>
+	</simpleType>
+	<simpleType name="ProdDestino">
+		<restriction base="string">
+			<length value="10" />
+			<whiteSpace value="collapse" />
+		</restriction>
+	</simpleType>
+	<simpleType name="fechaTrx">
+		<restriction base="dateTime">
+			<pattern value="" />
+		</restriction>
+	</simpleType>
+	<simpleType name="nroAutoriza">
+		<restriction base="long">
+			<minInclusive value="0" />
+			<maxInclusive value="99999999" />
+		</restriction>
+	</simpleType>
+	<simpleType name="estadoPago">
+		<restriction base="string">
+			<length value="1" />
+			<enumeration value="E" />
+			<enumeration value="F" />
+			<enumeration value="C" />
+		</restriction>
+	</simpleType>
+	<simpleType name="origenNotifica">
+		<restriction base="string">
+			<length value="50" />
+		</restriction>
+	</simpleType>
+	<simpleType name="destinoNotifica">
+		<restriction base="string">
+			<length value="50" />
+		</restriction>
+	</simpleType>
+	<simpleType name="mensajeNotifica">
+		<restriction base="string">
+			<length value="300" />
+			<whiteSpace value="collapse" />
+		</restriction>
+	</simpleType>
+	<simpleType name="descripcionNotifica">
+		<restriction base="string">
+			<length value="100" />
+			<whiteSpace value="collapse" />
+		</restriction>
+	</simpleType>
+	<simpleType name="tipoLogin">
+		<union memberTypes="tns:tipoProducto tns:tipoUsuario" />
+	</simpleType>
+	<simpleType name="nroLogin">
+		<union memberTypes="tns:idProducto tns:idUsuario" />
+	</simpleType>
+	<simpleType name="mensajeLog">
+		<restriction base="string">
+			<length value="300" />
+			<whiteSpace value="collapse" />
+		</restriction>
+	</simpleType>
+	<simpleType name="canal">
+		<restriction base="string">
+			<length value="3" />
+			<enumeration value="CAJ" />
+			<enumeration value="WEB" />
+			<enumeration value="BMO" />
+			<enumeration value="OFI" />
+			<enumeration value="CNB" />
+			<enumeration value="IVR" />
+		</restriction>
+	</simpleType>
+	<simpleType name="descRespuesta">
+		<restriction base="string">
+			<whiteSpace value="collapse" />
+			<minLength value="1" />
+			<maxLength value="40" />
+		</restriction>
+	</simpleType>
+	<simpleType name="codRespuesta">
+		<restriction base="int">
+			<minExclusive value="0" />
+			<maxExclusive value="9999" />
+		</restriction>
+	</simpleType>
+</schema>

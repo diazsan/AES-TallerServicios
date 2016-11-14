@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.ABC.com/schemaLogin"
+	xmlns:tns="http://www.ABC.com/schemaLogin"
+	elementFormDefault="qualified" 
+	xmlns:pref="http://www.ABC.com/schemaCanonical">
+	
+	<import schemaLocation="schemaCanonical.xsd" namespace="http://www.ABC.com/schemaCanonical"/>
+	<element name="LoginReq" type="tns:LoginReq" />
+	<element name="LoginRes" type="tns:LoginRes" />
+	<complexType name="LoginReq">
+		<sequence>
+			<element name="tipoLogin" type="pref:tipoLogin" minOccurs="1"
+				maxOccurs="1" />
+			<element name="nroLogin" type="pref:nroLogin" minOccurs="1"
+				maxOccurs="1" />
+			<element name="clave" type="pref:clave" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="LoginRes">
+		<sequence>
+			<element name="nroAutoriza" type="pref:nroAutoriza"
+				minOccurs="1" maxOccurs="1" />		
+		</sequence>
+	</complexType>
+</schema>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+xmlns:tns="http://www.ABC.com/PaymentService/" 
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+name="PaymentService" 
+targetNamespace="http://www.ABC.com/PaymentService/"  xmlns:pay="http://www.ABC.com/schemaPayment"
+	xmlns:hea="http://www.ABC.com/schemaHeader">
+  <wsdl:types>
+		<xsd:schema>
+			<xsd:import schemaLocation="../Schemas/schemaPayment.xsd"
+				namespace="http://www.ABC.com/schemaPayment" />
+			<xsd:import schemaLocation="../Schemas/schemaHeader.xsd"
+				namespace="http://www.ABC.com/schemaHeader" />
+		</xsd:schema>
+	</wsdl:types>
+  <wsdl:message name="PagarRequest">
+    <wsdl:part element="pay:PaymentReq" name="pagarReq"/>
+  </wsdl:message>
+  <wsdl:message name="PagarResponse">
+    <wsdl:part element="pay:PaymentRes" name="pagarRes"/>
+  </wsdl:message>
+  <wsdl:message name="headerReq">
+		<wsdl:part element="hea:headerReq" name="headerReq" />
+	</wsdl:message>
+	<wsdl:message name="headerRes">
+		<wsdl:part element="hea:headerRes" name="headerRes" />
+	</wsdl:message>
+  <wsdl:portType name="PaymentService">
+    <wsdl:operation name="Pagar">
+      <wsdl:input message="tns:PagarRequest"/>
+      <wsdl:output message="tns:PagarResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaymentServiceBinding" type="tns:PaymentService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Pagar">
+      <soap:operation soapAction=""/>
+     	<wsdl:input>
+				<soap:header use="literal" part="headerReq" message="tns:headerReq" />
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header use="literal" part="headerRes" message="tns:headerRes" />
+				<soap:body use="literal" />
+			</wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PaymentService">
+    <wsdl:port binding="tns:PaymentServiceBinding" name="PaymentServicePort">
+      <soap:address location="http://www.ABC.com/PaymentService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

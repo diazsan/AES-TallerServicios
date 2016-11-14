@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.ABC.com/schemaNotification"
+	xmlns:tns="http://www.ABC.com/schemaNotification"
+	elementFormDefault="qualified"
+	xmlns:pref="http://www.ABC.com/schemaCanonical" xmlns:pref1="http://www.ABC.com/schemaHeader">
+	<import schemaLocation="schemaCanonical.xsd"
+		namespace="http://www.ABC.com/schemaCanonical">
+	</import>
+	<element name="notificacionReq" type="tns:notificacionReq" />
+	<complexType name="notificacionReq">
+		<sequence>
+			<element name="origenNotifica" type="pref:origenNotifica"
+				minOccurs="1" maxOccurs="1" />
+			<element name="destinoNotifica" type="pref:destinoNotifica" minOccurs="1"
+				maxOccurs="1" />
+			<element name="mensajeNotifica" type="pref:mensajeNotifica" minOccurs="0"
+				maxOccurs="1" nillable="true"/>
+				<element name="descripcionNotifica" type="pref:descripcionNotifica" minOccurs="0"
+				maxOccurs="1" nillable="true"/>					
+		</sequence>
+	</complexType>
+</schema>

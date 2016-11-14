@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.ABC.com/schemaPayment"
+	xmlns:tns="http://www.ABC.com/schemaPayment"
+	elementFormDefault="qualified" xmlns:pref="http://www.ABC.com/schemaCanonical">
+	<import schemaLocation="schemaCanonical.xsd" namespace="http://www.ABC.com/schemaCanonical"></import>
+	<element name="PaymentReq" type="tns:PaymentReq" />
+	<element name="PaymentRes" type="tns:PaymentRes" />
+	<complexType name="PaymentReq">
+		<sequence>
+			<element name="prodOrigen" type="pref:prodOrigen" minOccurs="1"
+				maxOccurs="1" />
+			<element name="ProdDestino" type="pref:ProdDestino" minOccurs="1"
+				maxOccurs="1" />
+			<element name="valor" type="pref:valor" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="PaymentRes">
+		<sequence>			
+				<element name="nroAutoriza" type="pref:nroAutoriza"
+				minOccurs="1" maxOccurs="1" />
+				<element name="estadoPago" type="pref:estadoPago"
+				minOccurs="1" maxOccurs="1" />	
+		</sequence>
+	</complexType>
+</schema>
