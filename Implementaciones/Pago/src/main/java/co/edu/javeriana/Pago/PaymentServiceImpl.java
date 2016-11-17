@@ -81,8 +81,8 @@ public class PaymentServiceImpl implements PaymentService {
 		
 //invocacion pago factura		
 		PagarFacturaReq facturaReq=new PagarFacturaReq();
-		facturaReq.setConvenio(111);
-		facturaReq.setRefPago("23456");
+		facturaReq.setConvenio(Integer.parseInt(pagarReq.getProdDestino().substring(0, 3)));
+		facturaReq.setRefPago(pagarReq.getProdDestino());
 		co.edu.javeriana.Factura.HeaderReq headReqFactura=new co.edu.javeriana.Factura.HeaderReq();
 		co.edu.javeriana.Factura.Canal canalFactura=co.edu.javeriana.Factura.Canal.CAJ;
 		headReqFactura.setCanalOrigen(canalFactura);

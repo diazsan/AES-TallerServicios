@@ -40,7 +40,7 @@ public class BillServiceImpl implements BillService {
 				HttpClient consult = new DefaultHttpClient();
 				// Aca se debe identificar el endpoint del respectivo convenio
 				HttpGet req = new HttpGet(
-						"http://localhost:8080/Workshop1-REST-Service-1.0-SNAPSHOT/servicios/pagos/v1/payments/123");
+						"http://localhost:8080/Workshop1-REST-Service-1.0-SNAPSHOT/servicios/pagos/v1/payments/"+consulta.getRefPago());
 				HttpResponse res = consult.execute(req);
 				if (res.getStatusLine().getStatusCode() == 200) {
 					HttpEntity resEntity = res.getEntity();
@@ -91,7 +91,7 @@ public class BillServiceImpl implements BillService {
 				HttpClient pago = new DefaultHttpClient();
 				// Aca se debe identificar el endpoint del respectivo convenio
 				HttpPost req = new HttpPost(
-						"http://localhost:8080/Workshop1-REST-Service-1.0-SNAPSHOT/servicios/pagos/v1/payments/123");
+						"http://localhost:8080/Workshop1-REST-Service-1.0-SNAPSHOT/servicios/pagos/v1/payments/"+pagar.getRefPago());
 				HttpResponse res = pago.execute(req);
 				if (res.getStatusLine().getStatusCode() == 200) {
 					HttpEntity resEntity = res.getEntity();
@@ -138,7 +138,7 @@ public class BillServiceImpl implements BillService {
 				try {
 					HttpClient compens = new DefaultHttpClient();
 					HttpDelete req = new HttpDelete(
-							"http://localhost:8080/Workshop1-REST-Service-1.0-SNAPSHOT/servicios/pagos/v1/payments/123");
+							"http://localhost:8080/Workshop1-REST-Service-1.0-SNAPSHOT/servicios/pagos/v1/payments/"+compensar.getRefPago());
 					HttpResponse resCompensa = compens.execute(req);
 					if (resCompensa.getStatusLine().getStatusCode() == 200) {
 						HttpEntity resEntity = resCompensa.getEntity();
