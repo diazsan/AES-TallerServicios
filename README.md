@@ -15,7 +15,7 @@ Pontificia Universidad Javeriana
 
 Elaborado por:
 
-Yolima Suarez
-Jorge Ruiz
-Santiago Diaz
+Yolima Suarez,
+Jorge Ruiz,
+Santiago Diaz,
 Conrado Cardona
