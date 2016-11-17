@@ -8,6 +8,7 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.namespace.QName;
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Holder;
 
@@ -103,15 +104,19 @@ public class PaymentServiceImpl implements PaymentService {
 		
 // Invocacion de notificacion(recomendamos sea asincrono)	
 		NotificacionReq renotifi=new NotificacionReq();
-		JAXBElement<String> descri=new JAXBElement<String>(null, null, "Notificacion a usuario");
-		renotifi.setDescripcionNotifica(descri);
+		@SuppressWarnings({ "unchecked", "rawtypes" })
+		JAXBElement<String> jaxbElement = 
+			    new JAXBElement(new QName("http://www.ABC.com/schemaPayment", ""), String.class, "Se ha hecho el pago de un servicio publico");
+		//JAXBElement<String> descri=new JAXBElement<String>(null, null, "Notificacion a usuario");
+		renotifi.setDescripcionNotifica(jaxbElement);
 		renotifi.setDestinoNotifica("algo@.algo.com");
 		renotifi.setOrigenNotifica("algo@.algo.com");
-		renotifi.setMensajeNotifica(descri);
+		renotifi.setMensajeNotifica(jaxbElement);
 		co.edu.javeriana.Notificacion.HeaderReq headReqNoti=new co.edu.javeriana.Notificacion.HeaderReq();
 		co.edu.javeriana.Notificacion.Canal canalNoti=co.edu.javeriana.Notificacion.Canal.CAJ;	
 		headReqNoti.setCanalOrigen(canalNoti);
 		headReqNoti.setFechaTrx(headerReq.fechaTrx);
+		@SuppressWarnings("unused")
 		Holder<co.edu.javeriana.Notificacion.HeaderRes> holderHeadNoti=new Holder<co.edu.javeriana.Notificacion.HeaderRes>();
 		NotificationService_Service serviNoti=new NotificationService_Service();
 		NotificationService notiStub=serviNoti.getNotificationServicePort();

@@ -53,7 +53,7 @@
 	<simpleType name="correo">
 		<restriction base="string">
 			<length value="50" />
-			<pattern value="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" />
+			<pattern value="" />
 		</restriction>
 	</simpleType>
 	<simpleType name="celular">
@@ -90,7 +90,7 @@
 	</simpleType>
 	<simpleType name="fechaVenc">
 		<restriction base="dateTime">
-			<pattern value="/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/" />
+			<pattern value="" />
 		</restriction>
 	</simpleType>
 	<simpleType name="prodOrigen">
@@ -110,7 +110,7 @@
 	</simpleType>
 	<simpleType name="fechaTrx">
 		<restriction base="dateTime">
-			<pattern value="/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/" />
+			<pattern value="" />
 		</restriction>
 	</simpleType>
 	<simpleType name="nroAutoriza">
