@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>co.edu.javeriana.Cliente</groupId>
-    <artifactId>ClienteService</artifactId>
+    <artifactId>CustomerService</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>ClienteService</name>
+    <name>CustomerService</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>

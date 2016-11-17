@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.ABC.com/schemaHeader"
+	targetNamespace="http://www.ABC.com/schemaHeader" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:ref="http://www.ABC.com/schemaCanonical" elementFormDefault="qualified">
+
+	<import schemaLocation="schemaCanonical.xsd" namespace="http://www.ABC.com/schemaCanonical" />
+	<element name="headerReq" type="tns:headerReq" />
+	<element name="headerRes" type="tns:headerRes" />
+	<complexType name="headerReq">
+		<sequence>
+			<element name="canalOrigen" type="ref:canal" minOccurs="1"
+				maxOccurs="1" />
+			<element name="fechaTrx" type="ref:fechaTrx" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="headerRes">
+		<sequence>
+			<element name="codRespuesta" type="ref:codRespuesta"
+				minOccurs="1" maxOccurs="1" />
+			<element name="descRespuesta" type="ref:descRespuesta"
+				minOccurs="1" maxOccurs="1" />
+		</sequence>
+	</complexType>
+</schema>

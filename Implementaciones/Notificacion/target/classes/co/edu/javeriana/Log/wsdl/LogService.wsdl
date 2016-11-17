@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.ABC.com/LogService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LogService"
+	targetNamespace="http://www.ABC.com/LogService/" xmlns:log="http://www.ABC.com/schemaLog"
+	xmlns:hea="http://www.ABC.com/schemaHeader">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import schemaLocation="../Schemas/schemaLog.xsd"
+				namespace="http://www.ABC.com/schemaLog" />
+			<xsd:import schemaLocation="../Schemas/schemaHeader.xsd"
+				namespace="http://www.ABC.com/schemaHeader" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="grabarRequest">
+		<wsdl:part element="log:logReq" name="grabar" />
+	</wsdl:message>	
+	<wsdl:message name="headerReq">
+		<wsdl:part element="hea:headerReq" name="headerReq" />
+	</wsdl:message>
+	<wsdl:portType name="LogService">
+		<wsdl:operation name="Grabar">
+			<wsdl:input message="tns:grabarRequest" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="LogServiceBinding" type="tns:LogService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="Grabar">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:header use="literal" part="headerReq" message="tns:headerReq" />
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="LogService">
+		<wsdl:port binding="tns:LogServiceBinding" name="LogServicePort">
+			<soap:address location="http://www.ABC.com/LogSerevice" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

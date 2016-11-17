@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ABC.com/schemaLog"
+	xmlns:tns="http://www.ABC.com/schemaLog" elementFormDefault="qualified"
+	xmlns:ref="http://www.ABC.com/schemaCanonical">
+	<import schemaLocation="schemaCanonical.xsd" namespace="http://www.ABC.com/schemaCanonical" />
+	<element name="logReq" type="tns:logReq"/>
+		<complexType name="logReq">
+		<sequence>
+			<element name="descripcion" type="ref:mensajeNotifica" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+</schema>

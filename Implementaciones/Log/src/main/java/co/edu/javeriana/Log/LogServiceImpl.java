@@ -8,6 +8,6 @@ public class LogServiceImpl implements LogService {
     @Override
     public void grabar(LogReq grabar,
 			HeaderReq headerReq) {
-		System.out.println("entra");
+		System.out.println(grabar.getDescripcion());
     }
 }

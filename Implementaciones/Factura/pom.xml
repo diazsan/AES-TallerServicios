@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>co.edu.javeriana.Factura</groupId>
-    <artifactId>FacturaService</artifactId>
+    <artifactId>BillService</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>FacturaService</name>
+    <name>BillService</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
